@@ -5,6 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByTagName("button");
 
     for (let button of buttons) {
+
+        document.getElementById("answer-box").value = "";
+        document.getElementById("answer-box").focus();
+
+
         button.addEventListener("click", function () {
             if (this.getAttribute("data-type") === "submit") {
                 checkAnswer();
@@ -14,6 +19,12 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    document.getElementById("answer-box").addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    });
 
     runGame("addition");
 
